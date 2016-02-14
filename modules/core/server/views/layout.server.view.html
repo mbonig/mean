@@ -41,13 +41,13 @@
   <script>
     System.config({
       packages: {
-        app: {
+        modules: {
           format: 'register',
           defaultExtension: 'js'
         }
       }
     });
-    System.import('app/main')
+    System.import('modules/core/client/app/main')
       .then(null, console.error.bind(console));
   </script>
 

@@ -11,7 +11,7 @@ module.exports = {
                 'public/lib/es6-shim/es6-shim.js',
                 'public/lib/system.js/dist/system.js',
                 'public/lib/reflect-metadata/Reflect.js',
-                'public/lib/angular/bundles/angular2_all.umd.js'
+                'public/lib/angular/bundles/angular2.js'
             ],
             tests: ['public/lib/angular-mocks/angular-mocks.js']
         },
