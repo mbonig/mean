@@ -73,3 +73,5 @@ mongod
 *.ntvs*
 *.njsproj
 *.sln
+
+jspm_packages
