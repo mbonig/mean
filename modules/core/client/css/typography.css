@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Museo Sans';
+  src: url("/modules/core/client/fonts/MuseoSansW00-100.eot");
+  src: url("/modules/core/client/fonts/MuseoSansW00-100.eot?#iefix") format("embedded-opentype"), url("/modules/core/client/fonts/MuseoSansW00-100.woff") format("woff"), url("/modules/core/client/fonts/MuseoSansW00-100.ttf") format("truetype"), url("/modules/core/client/fonts/MuseoSansW00-100.svg") format("svg");
+  font-weight: 100; }
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url("/modules/core/client/fonts/MuseoSansW00-300.eot");
+  src: url("/modules/core/client/fonts/MuseoSansW00-300.eot?#iefix") format("embedded-opentype"), url("/modules/core/client/fonts/MuseoSansW00-300.woff") format("woff"), url("/modules/core/client/fonts/MuseoSansW00-300.ttf") format("truetype"), url("/modules/core/client/fonts/MuseoSansW00-300.svg") format("svg");
+  font-weight: 300; }
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url("/modules/core/client/fonts/MuseoSansW00-500.eot");
+  src: url("/modules/core/client/fonts/MuseoSansW00-500.eot?#iefix") format("embedded-opentype"), url("/modules/core/client/fonts/MuseoSansW00-500.woff") format("woff"), url("/modules/core/client/fonts/MuseoSansW00-500.ttf") format("truetype"), url("/modules/core/client/fonts/MuseoSansW00-500.svg") format("svg");
+  font-weight: 500; }

@@ -1,0 +1,34 @@
+
+table {
+
+  table-layout: fixed;
+
+  th {
+    width: 25%;
+  }
+  td {
+    overflow: hidden;
+  }
+  .about {
+    width: 40%;
+  }
+  .actions {
+    text-align: center;
+    width: 100px;
+  }
+  .loading {
+    td {
+      text-align: center;
+    }
+  }
+}
+
+.table-dark {
+  color: #aaa;
+  tr[ng-click] {
+    cursor: pointer;
+  }
+  &.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #272727;
+  }
+}

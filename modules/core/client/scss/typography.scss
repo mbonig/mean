@@ -1,0 +1,138 @@
+// Typography
+//
+//Different font sizes used in the project
+//
+//Styleguide 4
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/modules/core/client/fonts/MuseoSansW00-100.eot');
+  src: url('/modules/core/client/fonts/MuseoSansW00-100.eot?#iefix') format('embedded-opentype'),
+    url('/modules/core/client/fonts/MuseoSansW00-100.woff') format('woff'),
+    url('/modules/core/client/fonts/MuseoSansW00-100.ttf') format('truetype'),
+    url('/modules/core/client/fonts/MuseoSansW00-100.svg') format('svg');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/modules/core/client/fonts/MuseoSansW00-300.eot');
+  src: url('/modules/core/client/fonts/MuseoSansW00-300.eot?#iefix') format('embedded-opentype'),
+    url('/modules/core/client/fonts/MuseoSansW00-300.woff') format('woff'),
+    url('/modules/core/client/fonts/MuseoSansW00-300.ttf') format('truetype'),
+    url('/modules/core/client/fonts/MuseoSansW00-300.svg') format('svg');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/modules/core/client/fonts/MuseoSansW00-500.eot');
+  src: url('/modules/core/client/fonts/MuseoSansW00-500.eot?#iefix') format('embedded-opentype'),
+    url('/modules/core/client/fonts/MuseoSansW00-500.woff') format('woff'),
+    url('/modules/core/client/fonts/MuseoSansW00-500.ttf') format('truetype'),
+    url('/modules/core/client/fonts/MuseoSansW00-500.svg') format('svg');
+  font-weight: 500;
+}
+
+$font-family-sans-serif: 'Museo Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+//$font-size
+//
+//<div class="kss-mod-example">
+//<div style="font-size:14px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.1
+$font-size: 0.875rem; //14px;
+
+//$font-size--xxs
+//
+//<div class="kss-mod-example">
+//<div style="font-size:=8px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.2
+$font-size--xxs: 0.438rem; //7px;
+
+//$font-size--xs
+//
+//<div class="kss-mod-example">
+//<div style="font-size:10px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.2
+$font-size--xs: 0.625rem; //10px;
+
+//$font-size--sm
+//
+//<div class="kss-mod-example">
+//<div style="font-size:12px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.3
+$font-size--sm: 0.75rem; //12px;
+
+//$font-size--md
+//
+//<div class="kss-mod-example">
+//<div style="font-size:16px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.4
+$font-size--md: 1rem; //16px
+
+//$font-size--lg
+//
+//<div class="kss-mod-example">
+//<div style="font-size:19px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.5
+$font-size--lg: 1.2rem; //19px
+
+//$font-size--xl
+//
+//<div class="kss-mod-example">
+//<div style="font-size:21px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.6
+$font-size--xl: 1.3rem; //21px;
+
+//$font-size--xxl
+//
+//<div class="kss-mod-example">
+//<div style="font-size:23px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.7
+$font-size--xxl: 1.44rem; //23px;
+
+//$font-size--3xl
+//
+//<div class="kss-mod-example">
+//<div style="font-size:25px; width:295px; height:15px; margin-top:-16px; margin-bottom:20px">
+//Lorem ipsum dolor sit amet
+//</div>
+//</div>
+//
+//Styleguide 4.8
+$font-size--3xl: 1.56rem; //25px;
+$font-size--4xl: 1.75rem; //28px;
+$font-size--5xl: 2.2rem; //35px;
+$font-size--6xl: 2.5rem; //40px;

@@ -1,0 +1,30 @@
+.dark {
+  background: #070707 url("/modules/core/client/img/background-blur.jpg") no-repeat;
+  background-size: 100% auto;
+  color: #D1D3D4; }
+  .dark .dropdown-menu {
+    background: #060606; }
+  .dark .jumbotron {
+    background-color: transparent;
+    padding: 10px;
+    text-align: center; }
+  .dark .navbar-inverse {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#002727+0,0f0e0e+100 */
+    background: #002727;
+    /* Old browsers */
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #002727 0%, #070707 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #002727 0%, #070707 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#002727', endColorstr='$background-color', GradientType=0);
+    /* IE6-9 */ }
+    .dark .navbar-inverse .navbar-toggle {
+      border: none; }
+    .dark .navbar-inverse a {
+      color: #D1D3D4;
+      text-decoration: none;
+      white-space: nowrap;
+      background: -webkit-linear-gradient(#fff, gray);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; }

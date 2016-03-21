@@ -1,0 +1,151 @@
+@import '_screens';
+@import '_colors';
+
+.navbar {
+  padding: 20px 0 3px;
+  @include dark-gradient();
+  border-bottom: 2px solid $border-color;
+}
+
+.top-nav {
+  align-items: stretch;
+  display: flex;
+  min-width: 154px;
+
+  @media (min-width: $screen-md) {
+    float: left;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    text-align: center;
+
+    @media (min-width: $screen-md) {
+      text-align: left;
+    }
+
+    & > * {
+      margin-left: -48px; /* this offsets the hamburger menu */
+      @media (min-width: $screen-md) {
+        margin-left: 0;
+      }
+    }
+    img {
+      width: 134px;
+    }
+  }
+
+  .hamburger {
+    align-self: flex-start;
+    flex: 0 0 auto;
+  }
+
+  .header-profile-image {
+    opacity: 0.8;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+  .open .header-profile-image,
+  a:hover .header-profile-image {
+    opacity: 1;
+  }
+
+  .user-header-dropdown-toggle {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+}
+
+.main-nav {
+  align-items: stretch;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  height: auto;
+  max-height: 1000px;
+  overflow: visible;
+  text-align: center;
+  transition: all 1s;
+
+  &.collapse {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  @media (min-width: $screen-md) {
+    &.collapse {
+      max-height: 1000px;
+      overflow: visible;
+    }
+    flex-direction: row;
+  }
+
+  .menu-items {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+
+    & > * {
+      padding: 5px 15px;
+    }
+
+    @media (min-width: $screen-md) {
+      flex-direction: row;
+    }
+  }
+
+  a {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: $light-gray-text;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .navbar-nav {
+    margin: 7.5px -5px;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $screen-md) {
+      flex-direction: row;
+    }
+
+  }
+  .user {
+    align-self: flex-end;
+    width: 100%;
+    @media (min-width: $screen-md) {
+      width: auto;
+    }
+
+    a {
+      font-size: 1.6rem;
+    }
+    li {
+      margin-top: 4px;
+      &.dropdown {
+        a:nth-child(1) {
+          display: block;
+        }
+      }
+    }
+    .dropdown-menu {
+      /* counteract the bs default .dropdown-menu styling */
+      float: none;
+      right: 0;
+
+      li {
+        text-align: center;
+      }
+    }
+  }
+}
+

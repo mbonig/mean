@@ -1,7 +1,7 @@
 {
-  "name": "meanjs",
-  "description": "Fullstack JavaScript with MongoDB, Express, AngularJS, and Node.js.",
-  "homepage": "http://meanjs.org/",
+  "name": "STARZ-boilerplate",
+  "description": "A full-stack MEAN boilerplate specific with STARZ branding and style",
+  "homepage": "http://starz.com/",
   "license": "MIT",
   "dependencies": {
     "angular": "~1.5.0",

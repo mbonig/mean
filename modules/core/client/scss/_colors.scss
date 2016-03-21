@@ -1,0 +1,17 @@
+$black: #000;
+$dark-gray: #060606;
+$light-gray-text: #D1D3D4;
+$white: #fff;
+$border-color: #1C1C1C;
+
+$background-color: #070707;
+
+@mixin dark-gradient() {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#002727+0,0f0e0e+100 */
+  background: #002727; /* Old browsers */
+  background: -moz-linear-gradient(top, #002727 0%, $background-color 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #002727 0%, $background-color 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #002727 0%, $background-color 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#002727', endColorstr='$background-color', GradientType=0); /* IE6-9 */
+
+}

@@ -1,0 +1,20 @@
+form {
+  label:after {
+    content: ':';
+  }
+  .form-actions {
+    margin-bottom: 2rem;
+  }
+}
+
+.error-text {
+  display: none;
+}
+
+.has-error .help-block.error-text {
+  display: block;
+}
+
+.has-error .help-inline.error-text {
+  display: inline;
+}
