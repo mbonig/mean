@@ -42,8 +42,8 @@ function watch(done) {
 
     // Add watch rules
     gulp.watch(defaultAssets.server.views, livereloadChanged);
-    gulp.watch(defaultAssets.server.allJS, gulp.parallel(build.jshint, build.eslint, livereloadChanged));
-    gulp.watch(defaultAssets.client.js, gulp.parallel(build.jshint, build.eslint, livereloadChanged));
+    gulp.watch(defaultAssets.server.allJS, gulp.parallel(build.eslint, livereloadChanged));
+    gulp.watch(defaultAssets.client.js, gulp.parallel(build.eslint, livereloadChanged));
     gulp.watch(defaultAssets.client.sass, gulp.series(build.sass, build.csslint, livereloadChanged));
     gulp.watch(defaultAssets.client.views, livereloadChanged);
 

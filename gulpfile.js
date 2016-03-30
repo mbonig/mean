@@ -33,7 +33,7 @@ var devBuildAndStart = gulp.series(
     serve.start,
     serve.watch);
 
-gulp.task('lint', gulp.parallel(build.csslint, build.jshint, build.eslint));
+gulp.task('lint', gulp.parallel(build.csslint, build.eslint));
 
 gulp.task('build', build.build);
 
