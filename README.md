@@ -27,44 +27,17 @@ Make sure you have installed all of the following prerequisites on your developm
 $ npm install -g bower
 ```
 
-* Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process. Make sure you've installed Node.js and npm first, then install grunt globally using npm:
-
-```bash
-$ npm install -g grunt-cli
-```
-
 * Sass - You're going to use [Sass](http://sass-lang.com/) to compile CSS during your grunt task. Make sure you have ruby installed, and then install Sass using gem install:
 
 ```bash
 $ gem install sass
 ```
 
-* Gulp - (Optional) You may use Gulp for Live Reload, Linting, and SASS or LESS.
+* Gulp4 - Gulp4 is used for hosting the server and for various build tasks (like compiling SASS)
 
 ```bash
-$ npm install gulp -g
+$ npm install gulpjs/gulp-cli#4.0 -g
 ```
-
-## Downloading MEAN.JS
-There are several ways you can get the MEAN.JS boilerplate:
-
-### Cloning The GitHub Repository
-The recommended way to get MEAN.js is to use git to directly clone the MEAN.JS repository:
-
-```bash
-$ git clone https://github.com/meanjs/mean.git meanjs
-```
-
-This will clone the latest version of the MEAN.JS repository to a **meanjs** folder.
-
-### Downloading The Repository Zip File
-Another way to use the MEAN.JS boilerplate is to download a zip copy from the [master branch on GitHub](https://github.com/meanjs/mean/archive/master.zip). You can also do this using `wget` command:
-
-```bash
-$ wget https://github.com/meanjs/mean/archive/master.zip -O meanjs.zip; unzip meanjs.zip; rm meanjs.zip
-```
-
-Don't forget to rename **mean-master** after your project name.
 
 ### Yo Generator
 Another way would be to use the [Official Yo Generator](http://meanjs.org/generator.html), which generates a copy of the MEAN.JS 0.4.x boilerplate and supplies an application generator to ease your daily development cycles.
@@ -89,7 +62,7 @@ This command does a few things:
 After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
 
 ```
-$ grunt
+$ gulp
 ```
 
 Your application should run on port 3000 with the *development* environment configuration, so in your browser just go to [http://localhost:3000](http://localhost:3000)
@@ -103,7 +76,7 @@ If you encounter any problems, try the Troubleshooting section.
 To run your application with *production* environment configuration, execute grunt as follows:
 
 ```bash
-$ grunt prod
+$ gulp prod
 ```
 
 * explore `config/env/production.js` for production environment configuration options
@@ -142,7 +115,7 @@ Finally, execute grunt's prod task `grunt prod`
 You can run the full test suite included with MEAN.JS with the test task:
 
 ```bash
-$ grunt test
+$ gulp test
 ```
 
 This will run both the server-side tests (located in the app/tests/ directory) and the client-side tests (located in the public/modules/*/tests/).
@@ -150,66 +123,13 @@ This will run both the server-side tests (located in the app/tests/ directory) a
 To execute only the server tests, run the test:server task:
 
 ```bash
-$ grunt test:server
+$ gulp test:server
 ```
 
 And to run only the client tests, run the test:client task:
 
 ```bash
-$ grunt test:client
-```
-
-## Running your application with Gulp
-
-After the install process, you can easily run your project with:
-
-```bash
-$ gulp
-```
-or
-
-```bash
-$ gulp default
-```
-
-The server is now running on http://localhost:3000 if you are using the default settings. 
-
-### Running Gulp Development Environment
-
-Start the development environment with:
-
-```bash
-$ gulp dev
-```
-
-### Running in Production mode
-To run your application with *production* environment configuration, execute gulp as follows:
-
-```bash
-$ gulp prod
-```
-
-### Testing Your Application with Gulp
-Using the full test suite included with MEAN.JS with the test task:
-
-### Run all tests
-```bash
-$ gulp test
-```
-
-### Run server tests
-```bash
-gulp test:server
-```
-
-### Run client tests
-```bash
-gulp test:client
-```
-
-### Run e2e tests
-```bash
-gulp test:e2e
+$ gulp test:client
 ```
 
 ## Development and deployment With Docker

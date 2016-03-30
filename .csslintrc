@@ -3,6 +3,7 @@
   "box-model": false,
   "box-sizing": false,
   "floats": false,
+  "gradients": false,
   "font-sizes": false,
   "important": false,
   "known-properties": false,
@@ -11,5 +12,6 @@
   "regex-selectors": false,
   "unique-headings": false,
   "universal-selector": false,
-  "unqualified-attributes": false
+  "unqualified-attributes": false,
+  "compatible-vendor-prefixes": false
 }

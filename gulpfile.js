@@ -5,8 +5,7 @@
 
 var gulp = require('gulp'),
     build = require('./tasks/gulp/build'),
-    serve = require('./tasks/gulp/serve'),
-    test = require('./tasks/gulp/test');
+    serve = require('./tasks/gulp/serve');
 
 
 function setDevelopment(done) {

@@ -86,7 +86,7 @@
   overflow: visible;
   text-align: center;
   -webkit-transition: all 1s;
-  transition: all 1s; }
+          transition: all 1s; }
   .main-nav.collapse {
     max-height: 0;
     overflow: hidden; }
