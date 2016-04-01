@@ -1,0 +1,38 @@
+.dark-form {
+  text-align: center;
+  background-color: #202020; }
+  .dark-form a, .dark-form a:hover {
+    color: #D1D3D4; }
+  .dark-form .btn-primary {
+    text-transform: uppercase;
+    background: #464646 none;
+    border: 1px solid #D1D3D4;
+    border-radius: 0;
+    padding: 1.5rem 2.5rem;
+    font-size: 2rem;
+    font-weight: 300; }
+  .dark-form form {
+    margin-top: 4rem; }
+  .dark-form h1 {
+    font-size: 3rem;
+    font-weight: 100; }
+  .dark-form h2 {
+    font-size: 2rem;
+    font-weight: 100; }
+  .dark-form input {
+    border-radius: 0;
+    border: 1px solid #D1D3D4;
+    background-color: #202020;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #D1D3D4; }
+    .dark-form input::-webkit-input-placeholder {
+      text-transform: uppercase;
+      text-align: center; }
+    .dark-form input::-moz-placeholder {
+      text-transform: uppercase;
+      text-align: center; }
+    .dark-form input:-ms-input-placeholder {
+      text-transform: uppercase;
+      text-align: center; }

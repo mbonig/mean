@@ -1,38 +1,34 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('users')
-    .controller('EditProfileController', EditProfileController);
+    angular.module('users').controller('EditProfileController', EditProfileController);
 
-  EditProfileController.$inject = ['$scope', '$http', '$location', 'Users', 'Authentication'];
+    EditProfileController.$inject = ['$scope', '$rootScope', 'Users', 'Authentication'];
 
-  function EditProfileController($scope, $http, $location, Users, Authentication) {
-    var vm = this;
+    function EditProfileController($scope, $rootScope, Users, Authentication) {
+        $rootScope.bodyClass = 'dark';
+        $scope.user = Authentication.user;
 
-    vm.user = Authentication.user;
-    vm.updateUserProfile = updateUserProfile;
+        // Update a user profile
+        $scope.updateUserProfile = function (isValid) {
+            $scope.success = $scope.error = null;
 
-    // Update a user profile
-    function updateUserProfile(isValid) {
-      vm.success = vm.error = null;
+            if (!isValid) {
+                $scope.$broadcast('show-errors-check-validity', 'userForm');
 
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
+                return false;
+            }
 
-        return false;
-      }
+            var user = new Users($scope.user);
 
-      var user = new Users(vm.user);
+            user.$update(function (response) {
+                $scope.$broadcast('show-errors-reset', 'userForm');
 
-      user.$update(function (response) {
-        $scope.$broadcast('show-errors-reset', 'vm.userForm');
-
-        vm.success = true;
-        Authentication.user = response;
-      }, function (response) {
-        vm.error = response.data.message;
-      });
+                $scope.success = true;
+                Authentication.user = response;
+            }, function (response) {
+                $scope.error = response.data.message;
+            });
+        };
     }
-  }
-}());
+})();

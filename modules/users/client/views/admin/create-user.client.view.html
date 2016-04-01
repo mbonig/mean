@@ -1,0 +1,14 @@
+<section>
+  <div class="col-md-12">
+    <form name="vm.userForm" ng-submit="vm.save(vm.userForm.$valid)" novalidate>
+      <div class="form-actions">
+        <button type="submit" value="Create" class="btn btn-primary"><span>Create User</span> <i
+          class="fa fa-play"></i></button>
+      </div>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
+      <starz-user-form model="vm.user" form="vm.userForm"></starz-user-form>
+    </form>
+  </div>
+</section>

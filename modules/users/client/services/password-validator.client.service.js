@@ -1,33 +1,41 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  // PasswordValidator service used for testing the password strength
-  angular
-    .module('users.services')
-    .factory('PasswordValidator', PasswordValidator);
+    angular.module('users').factory('PasswordValidator', PasswordValidator);
 
-  PasswordValidator.$inject = ['$window'];
+    PasswordValidator.$inject = [];
 
-  function PasswordValidator($window) {
-    var owaspPasswordStrengthTest = $window.owaspPasswordStrengthTest;
-
-    var service = {
-      getResult: getResult,
-      getPopoverMsg: getPopoverMsg
-    };
-
-    return service;
-
-    function getResult(password) {
-      var result = owaspPasswordStrengthTest.test(password);
-      return result;
+    function PasswordValidator() {
+        return {
+            getResult: function (password) {
+                return test(password);
+            },
+            getPopoverMsg: function () {
+                return 'Your password needs to be at least 7 characters. You are not required to use numbers or symbols or capital letters, but we recommend you do.';
+            }
+        };
     }
 
-    function getPopoverMsg() {
-      var popoverMsg = 'Please enter a passphrase or password with 10 or more characters, numbers, lowercase, uppercase, and special characters.';
+    function test(password){
+        // this is copied and pasted from the server module (which is tested and maintained)
+        // /modules/users/server/services/password.tester.js. If in doubt, this code
+        // should be the exact same as that code...
+        var results = {
+            errors: [],
+            failedTests: [],
+            requiredTestErrors: [],
+            optionalTestErrors: [],
+            passedTests: [],
+            isPassphrase: false,
+            strong: false,
+            optionalTestsPassed: 4
+        };
 
-      return popoverMsg;
+        if (!password || password.length < 7) {
+            results.errors.push('The password must be at least 8 characters long.');
+        }
+
+        return results;
+
     }
-  }
-
-}());
+})();

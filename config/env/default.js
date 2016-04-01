@@ -43,6 +43,23 @@ module.exports = {
   },
   logo: 'modules/core/client/img/brand/logo.png',
   favicon: 'modules/core/client/img/brand/favicon.ico',
+  mailer: {
+    from: process.env.MAILER_FROM || 'replaceme@STARZ.com',
+    sendgrid: {
+      apikey: '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',
+      templates: {
+        forgotPassword: 'goToSendGrid.comAndCreateNewTemplates', // THESE ARE NOT VALID, NEED CHANGING
+        resetPassword: 'goToSendGrid.comAndCreateNewTemplates'
+      }
+    },
+    options: {
+      service: process.env.MAILER_SERVICE_PROVIDER || 'MAILER_SERVICE_PROVIDER',
+      auth: {
+        user: process.env.MAILER_EMAIL_ID || 'MAILER_EMAIL_ID',
+        pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
+      }
+    }
+  },
   uploads: {
     profileUpload: {
       dest: './modules/users/client/img/profile/uploads/', // Profile upload destination path

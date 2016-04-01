@@ -1,0 +1,58 @@
+@import '../../../core/client/scss/_colors';
+
+$background: lighten($dark-gray, 10%);
+.dark-form {
+  text-align: center;
+  background-color: $background;
+
+  a, a:hover {
+    color: $light-gray-text;
+  }
+
+  .btn-primary {
+    text-transform: uppercase;
+    background: lighten($background, 15%) none;
+    border: 1px solid $light-gray-text;
+    border-radius: 0;
+    padding: 1.5rem 2.5rem;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  form {
+    margin-top: 4rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 100;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 100;
+  }
+
+  input {
+    border-radius: 0;
+    border: 1px solid $light-gray-text;
+    background-color: $background;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: $light-gray-text;
+
+    &::-webkit-input-placeholder {
+      text-transform: uppercase;
+      text-align: center;
+    }
+    &::-moz-placeholder {
+      text-transform: uppercase;
+      text-align: center;
+    }
+    &:-ms-input-placeholder {
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+}

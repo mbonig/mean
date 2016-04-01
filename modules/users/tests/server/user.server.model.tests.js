@@ -10,9 +10,7 @@ var should = require('should'),
 /**
  * Globals
  */
-var user1,
-  user2,
-  user3;
+var user1, user2, user3;
 
 /**
  * Unit tests

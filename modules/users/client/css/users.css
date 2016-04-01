@@ -1,21 +1,23 @@
+.user .btn-group {
+  margin-bottom: 2rem; }
+
 @media (min-width: 992px) {
   .nav-users {
-    position: fixed;
-  }
-}
+    position: fixed; } }
+
 .social-account-container {
   display: inline-block;
-  position: relative;
-}
+  position: relative; }
+
 .btn-remove-account {
   top: 10px;
   right: 10px;
-  position: absolute;
-}
+  position: absolute; }
+
 .btn-file {
   position: relative;
-  overflow: hidden;
-}
+  overflow: hidden; }
+
 .btn-file input[type=file] {
   position: absolute;
   top: 0;
@@ -28,9 +30,8 @@
   opacity: 0;
   background: white;
   cursor: inherit;
-  display: block;
-}
+  display: block; }
+
 .user-profile-picture {
   min-height: 150px;
-  max-height: 150px;
-}
+  max-height: 150px; }

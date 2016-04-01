@@ -1,37 +1,35 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('users')
-    .controller('ChangePasswordController', ChangePasswordController);
+    angular.module('users').controller('ChangePasswordController', ChangePasswordController);
 
-  ChangePasswordController.$inject = ['$scope', '$http', 'Authentication', 'PasswordValidator'];
+    ChangePasswordController.$inject = ['$scope', '$rootScope', '$http', 'Authentication', 'PasswordValidator'];
 
-  function ChangePasswordController($scope, $http, Authentication, PasswordValidator) {
-    var vm = this;
+    function ChangePasswordController($scope, $rootScope, $http, Authentication, PasswordValidator) {
+        $rootScope.bodyClass = 'dark';
 
-    vm.user = Authentication.user;
-    vm.changeUserPassword = changeUserPassword;
-    vm.getPopoverMsg = PasswordValidator.getPopoverMsg;
+        $scope.user = Authentication.user;
+        $scope.popoverMsg = PasswordValidator.getPopoverMsg();
 
-    // Change user password
-    function changeUserPassword(isValid) {
-      vm.success = vm.error = null;
+        // Change user password
+        $scope.changeUserPassword = function (isValid) {
+            $scope.success = $scope.error = null;
 
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.passwordForm');
+            if (!isValid) {
+                $scope.$broadcast('show-errors-check-validity', 'passwordForm');
 
-        return false;
-      }
+                return false;
+            }
 
-      $http.post('/api/users/password', vm.passwordDetails).success(function (response) {
-        // If successful show success message and clear form
-        $scope.$broadcast('show-errors-reset', 'vm.passwordForm');
-        vm.success = true;
-        vm.passwordDetails = null;
-      }).error(function (response) {
-        vm.error = response.message;
-      });
+            $http.post('/api/users/password', $scope.passwordDetails).success(function (response) {
+                // If successful show success message and clear form
+                $scope.$broadcast('show-errors-reset', 'passwordForm');
+                $scope.success = true;
+                $scope.passwordDetails = null;
+            }).error(function (response) {
+                $scope.error = response.message;
+            });
+        };
     }
-  }
-}());
+
+})();

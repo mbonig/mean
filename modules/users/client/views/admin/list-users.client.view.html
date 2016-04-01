@@ -1,21 +1,76 @@
 <section>
-  <div class="page-header">
+  <div class="">
+    <a class="btn btn-primary" ui-sref="admin.user-create">Create User <span class="fa fa-pencil"></span></a>
+    <h1>Users</h1>
     <div class="row">
-      <div class="col-md-4">
-        <h1>Users</h1>
-      </div>
-      <div class="col-md-4" style="margin-top: 2em">
-        <input class="form-control col-md-4" type="text" ng-model="vm.search" placeholder="Search" ng-change="vm.figureOutItemsToDisplay()" />
+      <div class="col-xs-12">
+        <label>Search all columns</label>
+        <div class="input-group">
+          <input class="form-control col-md-4"
+                 type="text"
+                 ng-model="vm.search"
+                 placeholder="e.g. admin or steve"
+                 ng-change="vm.searchUsers()" ng-change-options="{debounce:500}"/>
+              <span class="input-group-btn"
+                    uib-popover="Clear search"
+                    popover-placement="left"
+                    popover-trigger="mouseenter">
+                <button class="btn btn-default" type="button"><span class="fa fa-times"
+                                                                    ng-click="vm.search = ''; vm.searchUsers();"></span>
+                </button>
+              </span>
+        </div>
+
       </div>
     </div>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="user in vm.pagedItems" ui-sref="admin.user({userId: user._id})" class="list-group-item">
-      <h4 class="list-group-item-heading" ng-bind="user.username"></h4>
-      <p class="list-group-item-text pull-right small" ng-bind="user.roles"></p>
-      <p class="list-group-item-text" ng-bind="user.email"></p>
-    </a>
+    <div class="">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th ng-click="vm.order('displayName')" class="sortable">Name
+            <span class="fa" ng-show="vm.sort === 'displayName'"
+                  ng-class="{'fa-arrow-down':vm.reverse, 'fa-arrow-up':!vm.reverse}"></span>
+          </th>
+          <th ng-click="vm.order('username')" class="sortable">Username
+            <span class="fa" ng-show="vm.sort === 'username'"
+                  ng-class="{'fa-arrow-down':vm.reverse, 'fa-arrow-up':!vm.reverse}"></span>
+          </th>
+          <th ng-click="vm.order('email')" class="sortable">Email
+            <span class="fa" ng-show="vm.sort === 'email'"
+                  ng-class="{'fa-arrow-down':vm.reverse, 'fa-arrow-up':!vm.reverse}"></span>
+          </th>
+          <th>IsAdmin</th>
+          <th class="actions">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in vm.users">
+          <td>
+            <a ui-sref="admin.user({userId: user._id})">{{user.firstName}} {{user.lastName}}</a>
+          </td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td><span class="fa " ng-class="{'fa-check':user.roles.length > 1}"></span></td>
+          <td class="actions">
+            <button class="btn btn-link" ng-click="vm.remove(user)"><span class="fa fa-times"></span></button>
+
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="100">
+            <a ng-show="!vm.cantloadmore" href in-view="$inview && vm.getMoreUsers()"
+               in-view-options="{debounce:1000}"
+               ng-click="vm.getMoreUsers()">
+              <span class="fa fa-spinner fa-spin" ng-show="vm.loading"></span> <span>Load more...</span>
+            </a>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
 
-  <uib-pagination boundary-links="true" max-size="8" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
+
 </section>

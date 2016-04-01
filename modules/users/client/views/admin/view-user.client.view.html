@@ -1,51 +1,63 @@
-<section>
-  <div class="page-header">
-    <div class="row">
-      <div class="col-md-6">
-        <h1 ng-bind="vm.user.username"></h1>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-primary" ui-sref="admin.user-edit({userId: vm.user._id})">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-        <a class="btn btn-primary" ng-click="vm.remove()" ng-if="vm.user._id !== vm.authentication.user._id">
-          <i class="glyphicon glyphicon-trash"></i>
-        </a>
-      </div>
-    </div>
+<section class="user">
+  <h1>User Details</h1>
+  <div class="btn-group">
+    <a class="btn btn-default" ui-sref="admin.user-edit({userId: vm.user._id})">
+      Edit User
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
   </div>
 
-  <div class="row">
+  <div class="row user">
     <div class="col-md-8">
       <div class="row">
-        <div class="col-md-3"><strong>First Name</strong></div>
+        <div class="col-md-3"><label>First Name</label></div>
         <div class="col-md-6" ng-bind="vm.user.firstName"></div>
       </div>
       <hr/>
       <div class="row">
-        <div class="col-md-3"><strong>Last Name</strong></div>
+        <div class="col-md-3"><label>Last Name</label></div>
         <div class="col-md-6" ng-bind="vm.user.lastName"></div>
       </div>
       <hr/>
       <div class="row">
-        <div class="col-md-3"><strong>Email</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.email"></div>
+        <div class="col-md-3"><label>Username</label></div>
+        <div class="col-md-6">{{vm.user.username}}</div>
       </div>
       <hr/>
       <div class="row">
-        <div class="col-md-3"><strong>Provider</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.provider"></div>
+        <div class="col-md-3"><label>Email</label></div>
+        <div class="col-md-6"><a href="mailto:{{vm.user.email}}">{{vm.user.email}}</a></div>
       </div>
       <hr/>
       <div class="row">
-        <div class="col-md-3"><strong>Created</strong></div>
+        <div class="col-md-3"><label>Organization</label></div>
+        <div class="col-md-6" ng-bind="vm.user.organization"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><label>Title</label></div>
+        <div class="col-md-6" ng-bind="vm.user.title"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><label>Created</label></div>
         <div class="col-md-6" ng-bind="vm.user.created"></div>
       </div>
       <hr/>
       <div class="row">
-        <div class="col-md-3"><strong>Roles</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.roles"></div>
+        <div class="col-md-3"><label>Roles</label></div>
+        <div class="col-md-6">
+          <span class="string-list" ng-repeat="role in vm.user.roles">{{role}}</span>
+        </div>
       </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-3"><label>Notes</label></div>
+        <div class="col-md-6">
+          <p>{{vm.user.notes}}</p>
+        </div>
+      </div>
+      <hr/>
     </div>
   </div>
 </section>

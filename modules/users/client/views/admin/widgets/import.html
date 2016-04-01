@@ -1,0 +1,37 @@
+<section>
+  <form ng-submit="vm.submit()">
+    <div class="modal-header">
+      Import Users
+    </div>
+    <div class="modal-body">
+      <p>This allows you to bulk create new Users in the system.
+        You will provide a CSV file with the required information.
+      <p class="alert alert-info">The format is very specific. <strong>Please download the template</strong> when this is a completely new list.</p>
+      <a href="/api/group/{{$parent.vm.group._id}}/downloadUsers?sample=true" target="_blank">Click here</a> to download
+      the current Group's sample. Using this and then filling in the information as you go will greatly reduce the change of errors!</p>
+      <p>Please make sure you provide the following information for each new user. The header row <strong>must</strong> have the values listed below but they can be in any order.</p>
+      <ul class="list-unstyled">
+        <li>Organization</li>
+        <li>First Name</li>
+        <li>Last Name</li>
+        <li>Email Address</li>
+        <li>Job Title - optional</li>
+        <li>Group - leave the exact value that's in the template.</li>
+        <li>Notes</li>
+        <li>Username</li>
+        <li>Password - optional, if you leave it blank one will be generated. If this is an existing user the password
+          will be ignored.
+        </li>
+      </ul>
+      <p>Any fields not marked as optional are required.</p>
+      <p class="alert alert-warning"><strong>No emails will go out to new users.</strong> You are responsible for making
+        any new users aware of their <strong>username</strong> and <strong>password</strong>.</p>
+      <input type="file" name="file" class="form-control" accept=".csv" file-model="vm.file"/>
+    </div>
+    <div class="modal-footer">
+      <div class="btn-group">
+        <button class="btn btn-primary" type="submit">Import...</button>
+      </div>
+    </div>
+  </form>
+</section>

@@ -1,77 +1,85 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('users')
-    .controller('AuthenticationController', AuthenticationController);
+    angular.module('users').controller('AuthenticationController', AuthenticationController);
 
-  AuthenticationController.$inject = ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator'];
+    AuthenticationController.$inject = ['$scope', '$rootScope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator', 'TelemetryService'];
 
-  function AuthenticationController($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
-    var vm = this;
+    function AuthenticationController($scope, $rootScope, $state, $http, $location, $window, Authentication, PasswordValidator, TelemetryService) {
 
-    vm.authentication = Authentication;
-    vm.getPopoverMsg = PasswordValidator.getPopoverMsg;
-    vm.signup = signup;
-    vm.signin = signin;
-    vm.callOauthProvider = callOauthProvider;
+        $rootScope.bodyClass = 'dark';
 
-    // Get an eventual error defined in the URL query string:
-    vm.error = $location.search().err;
+        $scope.authentication = Authentication;
+        $scope.popoverMsg = PasswordValidator.getPopoverMsg();
 
-    // If user is signed in then redirect back home
-    if (vm.authentication.user) {
-      $location.path('/');
+        // Get an eventual error defined in the URL query string:
+        $scope.error = $location.search().err;
+
+        // If user is signed in then redirect back home
+        if ($scope.authentication.user) {
+            $location.path('/');
+        }
+
+        $scope.signin = function (isValid) {
+            $scope.error = null;
+
+            if (!isValid) {
+                $scope.$broadcast('show-errors-check-validity', 'userForm');
+
+                return false;
+            }
+
+            $http.post('/api/auth/signin', $scope.credentials)
+                .success(function (response) {
+                    // If successful we assign the response to the global user model
+                    $scope.authentication.user = response;
+
+                    // And redirect to the previous or home page
+                    $state.go($state.previous.state.name || 'home', $state.previous.params);
+                })
+                .error(function (response) {
+                    TelemetryService.track('LoginFailure', {username: $scope.credentials.username});
+                    $scope.error = response.message;
+                });
+        };
+
+        // OAuth provider request
+        $scope.callOauthProvider = function (url) {
+            if ($state.previous && $state.previous.href) {
+                url += '?redirect_to=' + encodeURIComponent($state.previous.href);
+            }
+
+            // Effectively call OAuth authentication route:
+            $window.location.href = url;
+        };
+
+        $scope.signup = signup;
+
+        function signup(isValid) {
+            $scope.error = null;
+            // Get an eventual error defined in the URL query string:
+            $scope.error = $location.search().err;
+
+            if (!isValid) {
+                $scope.$broadcast('show-errors-check-validity', 'userForm');
+                // If user is signed in then redirect back home
+                if ($scope.authentication.user) {
+                    $location.path('/');
+                }
+
+                return false;
+            }
+
+            $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
+                // If successful we assign the response to the global user model
+                $scope.authentication.user = response;
+                // And redirect to the previous or home page
+                $state.go($state.previous.state.name || 'home', $state.previous.params);
+            }).error(function (response) {
+                $scope.error = response.message;
+            });
+        }
+
     }
 
-    function signup(isValid) {
-      vm.error = null;
-
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
-
-        return false;
-      }
-
-      $http.post('/api/auth/signup', vm.credentials).success(function (response) {
-        // If successful we assign the response to the global user model
-        vm.authentication.user = response;
-
-        // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
-      }).error(function (response) {
-        vm.error = response.message;
-      });
-    }
-
-    function signin(isValid) {
-      vm.error = null;
-
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
-
-        return false;
-      }
-
-      $http.post('/api/auth/signin', vm.credentials).success(function (response) {
-        // If successful we assign the response to the global user model
-        vm.authentication.user = response;
-
-        // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
-      }).error(function (response) {
-        vm.error = response.message;
-      });
-    }
-
-    // OAuth provider request
-    function callOauthProvider(url) {
-      if ($state.previous && $state.previous.href) {
-        url += '?redirect_to=' + encodeURIComponent($state.previous.href);
-      }
-
-      // Effectively call OAuth authentication route:
-      $window.location.href = url;
-    }
-  }
-}());
+})();
