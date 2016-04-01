@@ -23,12 +23,15 @@ table {
   }
 }
 
-.table-dark {
-  color: #aaa;
-  tr[ng-click] {
-    cursor: pointer;
-  }
-  &.table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: #272727;
+.dark {
+  table {
+    color: #aaa;
+    tr[ng-click] {
+      cursor: pointer;
+    }
+    &.table-striped > tbody > tr:nth-of-type(odd) {
+      background-color: #272727;
+    }
   }
 }
+

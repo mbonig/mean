@@ -12,9 +12,9 @@ table {
   table .loading td {
     text-align: center; }
 
-.table-dark {
+.dark table {
   color: #aaa; }
-  .table-dark tr[ng-click] {
+  .dark table tr[ng-click] {
     cursor: pointer; }
-  .table-dark.table-striped > tbody > tr:nth-of-type(odd) {
+  .dark table.table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #272727; }
