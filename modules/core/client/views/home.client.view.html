@@ -27,6 +27,13 @@
           <li>mailer.sendgrid.templates - go to SendGrid and create new forgot/reset email templates.</li>
         </ul>
       </li>
+      <li>Edit the /config/env/development|production.js file, replace:
+        <ul>
+          <li>
+            db.uri - replace db name with short-name-dev (or short-name). E.g. media-room-dev|media-room
+          </li>
+        </ul>
+      </li>
       <li>
         Edit the /package.json, replace:
         <ul>
@@ -43,7 +50,7 @@
         </ul>
       </li>
       <li>
-        Edit the /modules/core/client/app/config.js, replace "mean" with your application short-name.
+        Edit the /modules/core/client/app/config.js, replace "mean" with your application short-name. E.g. media-room
       </li>
     </ul>
   </div>
