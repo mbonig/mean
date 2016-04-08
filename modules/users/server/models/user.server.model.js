@@ -192,7 +192,7 @@ UserSchema.statics.generateRandomPassphrase = function () {
 
     return new Promise(function (resolve, reject) {
         if (!words.length){
-            resolve("");
+            resolve('');
             return;
         }
 

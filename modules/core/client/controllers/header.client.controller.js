@@ -3,15 +3,14 @@
 
     angular.module('core').controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['$scope', '$state', 'Authentication', 'Menus'];
+    HeaderController.$inject = ['$scope', '$state', 'Authentication', 'Menus', 'SiteConfig'];
 
-    function HeaderController($scope, $state, Authentication, Menus) {
+    function HeaderController($scope, $state, Authentication, Menus, SiteConfig) {
         var vm = this;
         // Expose view variables
         vm.$state = $state;
         vm.authentication = Authentication;
-        vm.feedbackEmail = "";
-        vm.feedbackSubject = "";
+        vm.siteConfig = SiteConfig.get();
 
         // Get the topbar menu
         vm.menu = Menus.getMenu('topbar');
@@ -29,5 +28,6 @@
         $scope.$on('$stateChangeSuccess', function () {
             vm.isCollapsed = true;
         });
+
     }
 })();

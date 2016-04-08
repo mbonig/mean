@@ -45,7 +45,7 @@
         <a class="dropdown-toggle" uib-dropdown-toggle role="button">
           <span>{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}}</span> <b class="caret"></b>
         </a>
-        <a  href="mailto:{{vm.feedbackEmail}}?Subject={{vm.feedbackSubject}}">Write Us</a>
+        <a  href="mailto:{{vm.siteConfig.feedback.email}}?Subject={{vm.siteConfig.feedback.subject}}">Write Us</a>
         <ul class="dropdown-menu" role="menu">
           <li ui-sref-active="active">
             <a ui-sref="settings.profile">Edit Profile</a>
