@@ -5,7 +5,7 @@
  */
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    Original = mongoose.model('Original'),
+    Passwords = mongoose.model('Passwords'),
     crypto = require('crypto'),
     validator = require('validator'),
     _ = require('lodash'),
@@ -184,15 +184,21 @@ UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
 };
 
 var words;
-Original.find().exec(function (err, originals) {
-    words = originals;
+Passwords.find().exec(function (err, passwords) {
+    words = passwords;
 });
 
 UserSchema.statics.generateRandomPassphrase = function () {
 
     return new Promise(function (resolve, reject) {
+        if (!words.length){
+            resolve("");
+            return;
+        }
+
         var randomString = '0123456789';
         var password;
+
         do {
             var original = words[Math.floor(Math.random() * words.length)];
             password = _.camelCase(original.name);

@@ -9,22 +9,11 @@ var mongoose = require('mongoose'),
 /**
  * Original Schema
  */
-var OriginalSchema = new Schema({
+var PasswordsSchema = new Schema({
     name: {
         required: 'Please enter a name',
         type: String
-    },
-    description: String,
-    imageId: Schema.ObjectId,
-    position: Number,
-    updated: {
-        type: Date
-    },
-    created: {
-        type: Date,
-        default: Date.now
     }
 });
 
-OriginalSchema.index({'$**': 'text'});
-mongoose.model('Original', OriginalSchema);
+mongoose.model('Passwords', PasswordsSchema);

@@ -16,6 +16,9 @@
 
             function generatePassword() {
                 UserAdmin.generatePassword().$promise.then(function (result) {
+                    if (!result || !result.newPassword){
+                        console.log('could not generate password. please notify support@starz.com');
+                    }
                     vm.model.password = result.newPassword;
                 });
             }
