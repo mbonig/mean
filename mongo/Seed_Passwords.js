@@ -1,4 +1,4 @@
-db.originals.insert([
+db.passwords.insert([
             {
                 "name": "Power"
             }, {
