@@ -1,7 +1,7 @@
-<div class="container" ng-controller="HeaderController">
+<div class="container" ng-controller="HeaderController as vm">
   <div class="top-nav">
     <div class="hamburger">
-      <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
+      <button class="navbar-toggle" type="button" ng-click="vm.toggleCollapsibleMenu()">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -15,11 +15,11 @@
 
 
   </div>
-  <nav class="main-nav" ng-class="{collapse: isCollapsed}" role="navigation"
-       ng-if="menu.shouldRender(authentication.user);">
+  <nav class="main-nav" ng-class="{collapse: vm.isCollapsed}" role="navigation"
+       ng-if="vm.menu.shouldRender(authentication.user);">
 
     <div class="menu-items">
-      <div ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);"
+      <div ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);"
            ng-switch="item.type"
            ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }"
            class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
@@ -37,15 +37,15 @@
     </div>
 
     <hr/>
-    <div class="user" ng-hide="authentication.user">
-      <a ui-sref="authentication.signin">Sign In</a>
+    <div class="user" ng-hide="vm.authentication.user">
+      <a ui-sref="vm.authentication.signin">Sign In</a>
     </div>
-    <ul class="user list-unstyled" ng-show="authentication.user">
+    <ul class="user list-unstyled" ng-show="vm.authentication.user">
       <li class="dropdown" uib-dropdown>
         <a class="dropdown-toggle" uib-dropdown-toggle role="button">
-          <span>{{authentication.user.firstName}} {{authentication.user.lastName}}</span> <b class="caret"></b>
+          <span>{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}}</span> <b class="caret"></b>
         </a>
-        <a  href="mailto:STARZPublicRelations@STARZ.com?Subject=Feedback on your STARZ Screening Room website">Write Us</a>
+        <a  href="mailto:{{vm.feedbackEmail}}?Subject={{vm.feedbackSubject}}">Write Us</a>
         <ul class="dropdown-menu" role="menu">
           <li ui-sref-active="active">
             <a ui-sref="settings.profile">Edit Profile</a>
