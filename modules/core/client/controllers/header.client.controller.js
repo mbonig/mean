@@ -13,14 +13,14 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
     $scope.accountMenu = Menus.getMenu('account').items[0];
 
     // Toggle the menu items
-    $scope.isCollapsed = false;
+    $scope.isCollapsed = true;
     $scope.toggleCollapsibleMenu = function () {
       $scope.isCollapsed = !$scope.isCollapsed;
     };
 
     // Collapsing the menu after navigation
     $scope.$on('$stateChangeSuccess', function () {
-      $scope.isCollapsed = false;
+      $scope.isCollapsed = true;
     });
   }
 ]);
