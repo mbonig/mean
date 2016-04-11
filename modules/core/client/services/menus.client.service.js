@@ -17,17 +17,19 @@ angular.module('core').service('Menus', [
         if (!user) {
           return false;
         }
-        for (var userRoleIndex in user.roles) {
-          if (user.roles.hasOwnProperty(userRoleIndex)) {
-            for (var roleIndex in this.roles) {
-              if (this.roles.hasOwnProperty(roleIndex)) {
-                if (this.roles[roleIndex] === user.roles[userRoleIndex]) {
-                  return true;
-                }
+        var found = false;
+        var _this = this;
+        user.roles.forEach(function (userRole) {
+          if (_this && _this.roles){
+            _this.roles.forEach(function (itemRole) {
+              if (itemRole === userRole) {
+                found = true;
               }
-            }
+            });
           }
-        }
+
+        });
+        return found;
       }
 
       return false;

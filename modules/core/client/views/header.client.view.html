@@ -27,7 +27,7 @@
            role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
         <ul ng-switch-when="dropdown" class="dropdown-menu">
           <li ng-repeat="subitem in item.items | orderBy: 'position'"
-              ng-if="subitem.shouldRender(authentication.user);"
+              ng-if="subitem.shouldRender(vm.authentication.user);"
               ui-sref-active="active">
             <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
           </li>
