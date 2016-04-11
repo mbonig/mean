@@ -38,14 +38,15 @@
 
     <hr/>
     <div class="user" ng-hide="vm.authentication.user">
-      <a ui-sref="vm.authentication.signin">Sign In</a>
+      <a ui-sref="authentication.signin">Sign In</a>
+      <a class="feedback" href="mailto:{{vm.siteConfig.feedback.email}}?Subject={{vm.siteConfig.feedback.subject}}">Write Us</a>
     </div>
     <ul class="user list-unstyled" ng-show="vm.authentication.user">
       <li class="dropdown" uib-dropdown>
         <a class="dropdown-toggle" uib-dropdown-toggle role="button">
           <span>{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}}</span> <b class="caret"></b>
         </a>
-        <a  href="mailto:{{vm.siteConfig.feedback.email}}?Subject={{vm.siteConfig.feedback.subject}}">Write Us</a>
+        <a class="feedback" href="mailto:{{vm.siteConfig.feedback.email}}?Subject={{vm.siteConfig.feedback.subject}}">Write Us</a>
         <ul class="dropdown-menu" role="menu">
           <li ui-sref-active="active">
             <a ui-sref="settings.profile">Edit Profile</a>

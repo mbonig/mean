@@ -161,10 +161,8 @@
         width: auto; } }
     .main-nav .user a {
       font-size: 1.6rem; }
-    .main-nav .user li {
-      margin-top: 4px; }
-      .main-nav .user li.dropdown a:nth-child(1) {
-        display: block; }
+    .main-nav .user .feedback {
+      display: block; }
     .main-nav .user .dropdown-menu {
       /* counteract the bs default .dropdown-menu styling */
       float: none;

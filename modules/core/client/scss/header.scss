@@ -129,13 +129,9 @@
     a {
       font-size: 1.6rem;
     }
-    li {
-      margin-top: 4px;
-      &.dropdown {
-        a:nth-child(1) {
-          display: block;
-        }
-      }
+    .feedback{
+      display: block;
+
     }
     .dropdown-menu {
       /* counteract the bs default .dropdown-menu styling */
