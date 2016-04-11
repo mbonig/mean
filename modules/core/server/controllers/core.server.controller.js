@@ -1,6 +1,7 @@
 'use strict';
 
 var validator = require('validator');
+var _ = require('lodash');
 
 /**
  * Render the main application page
@@ -19,7 +20,8 @@ exports.renderIndex = function (req, res) {
       email: validator.escape(req.user.email),
       lastName: validator.escape(req.user.lastName),
       firstName: validator.escape(req.user.firstName),
-      additionalProvidersData: req.user.additionalProvidersData
+      additionalProvidersData: req.user.additionalProvidersData,
+      isAdmin : _.some(req.user.roles, function(role) {return role === "admin"})
     };
   }
 
