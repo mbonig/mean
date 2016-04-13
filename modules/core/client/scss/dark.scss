@@ -1,35 +1,27 @@
 @import '_colors';
 
-.dark {
-  background: $background-color url('/modules/core/client/img/background-blur.jpg') no-repeat;
-  background-size: 100% auto;
-  color: $light-gray-text;
-
-  .dropdown-menu {
-    background: $dark-gray;
-  }
-
-  .jumbotron {
-    background-color: transparent;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .navbar-inverse {
-    @include dark-gradient();
-    .navbar-toggle {
-      border: none;
-    }
-
-    a {
-      color: $light-gray-text;
-      text-decoration: none;
-      white-space: nowrap;
-      background: -webkit-linear-gradient($white, lighten($black, 50%));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
-
+.dropdown-menu {
+  background: $dark-gray;
 }
+
+.jumbotron {
+  padding: 10px;
+}
+
+.navbar-inverse {
+  @include dark-gradient();
+  .navbar-toggle {
+    border: none;
+  }
+
+  a {
+    color: $light-gray-text;
+    text-decoration: none;
+    white-space: nowrap;
+    background: -webkit-linear-gradient($white, lighten($black, 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 

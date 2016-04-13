@@ -19,14 +19,11 @@
         vm.accountMenu = Menus.getMenu('account').items[0];
 
         // Toggle the menu items
-        vm.isCollapsed = true;
-        vm.toggleCollapsibleMenu = function () {
-            vm.isCollapsed = !vm.isCollapsed;
-        };
-
+        vm.isOpen = false;
+        
         // Collapsing the menu after navigation
         $scope.$on('$stateChangeSuccess', function () {
-            vm.isCollapsed = true;
+            vm.isOpen = false;
         });
 
     }

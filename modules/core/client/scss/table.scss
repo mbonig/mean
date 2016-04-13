@@ -1,7 +1,16 @@
+$table-alt-color: #272727;
 
 table {
-
+  color: #aaa;
   table-layout: fixed;
+
+  &.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: $table-alt-color;
+  }
+
+  tr[ng-click] {
+    cursor: pointer;
+  }
 
   th {
     width: 25%;
@@ -23,15 +32,4 @@ table {
   }
 }
 
-.dark {
-  table {
-    color: #aaa;
-    tr[ng-click] {
-      cursor: pointer;
-    }
-    &.table-striped > tbody > tr:nth-of-type(odd) {
-      background-color: #272727;
-    }
-  }
-}
 

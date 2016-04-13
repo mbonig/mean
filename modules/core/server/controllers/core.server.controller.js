@@ -22,7 +22,7 @@ exports.renderIndex = function (req, res) {
             firstName: validator.escape(req.user.firstName),
             additionalProvidersData: req.user.additionalProvidersData,
             isAdmin: _.some(req.user.roles, function (role) {
-                return role === "admin"
+                return role === 'admin'
             })
         };
     }
